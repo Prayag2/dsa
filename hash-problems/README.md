@@ -1,5 +1,7 @@
 # Hash Problems
 This folder includes solutions to problems given by the Hash Define community at BPIT, Rohini.
+  
+  
 <img src="./banner.png" style="width: 100%" />
 
 # Running The Code
