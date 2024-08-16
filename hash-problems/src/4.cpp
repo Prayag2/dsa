@@ -1,11 +1,10 @@
 // print first n terms of fibonacci
 // o(n)
 #include <bits/stdc++.h>
+#include <inp.h>
 
 int main() {
-  int n {};
-  std::cout << "Enter n: ";
-  std::cin >> n;
+  int n {Me::input<int>("Enter n")};
   
   int previous {0}, current {1}, tmp {0};
   for (int i {0}; i < n; i++) {

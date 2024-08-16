@@ -1,11 +1,10 @@
 // weird algorithm
 // "it depends"
 #include <bits/stdc++.h>
+#include <inp.h>
 
 int main() {
-  int n {};
-  std::cout << "Enter n: ";
-  std::cin >> n;
+  int n {Me::input<int>("Enter n")};
 
   while (n != 1) {
     std::cout << n << " ";

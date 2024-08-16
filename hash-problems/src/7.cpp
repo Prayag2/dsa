@@ -1,11 +1,10 @@
 // leetcode bank
 // o(n)
 #include <bits/stdc++.h>
+#include <inp.h>
 
 int main() {
-  int n {};
-  std::cout << "Enter n: ";
-  std::cin >> n;
+  int n {Me::input<int>("Enter n")};
 
   int lastSum {28}, week {static_cast<int>(floor(n/7))};
   int total {n > 7 ? 28 : 0};
