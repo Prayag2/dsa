@@ -6,7 +6,7 @@ INCLUDE_DIR := ./include
 BINARIES := $(notdir $(basename $(wildcard $(SRC_DIR)/*.cpp)))
 .SECONDARY: $(addprefix $(BIN_DIR)/, $(BINARIES))
 
-CXX = g++
+CXX = clang++
 CXXFLAGS = -std=c++20 -I$(INCLUDE_DIR)
 
 %: $(BIN_DIR)/%

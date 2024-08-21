@@ -1,48 +1,30 @@
 // lcm and gcd of "a" and "b" (euclidean algo)
-// o(min(a,b)) for gcd
+// o(log(min(a,b)))
 #include <bits/stdc++.h>
 #include <inp.h>
 
-int getLCM (int a, int b) {
-  // used basic prime factorization
-  // used sieve of erastothenes to get primes
-  // I could've used the formula lcm = (a*b)/gcd but 
-  // I wanted to experiment a little
-  int product {1};
-  int currentPrime {2};
-  int max {std::max(a, b)};
-
-  // sieve
-  std::vector <bool> isPrime (max, true);
-  for (int i {2}; i <= max; i++) {
-    if (!isPrime[i])
-      continue;
-
-    // marking non primes
-    for (int j {i}; j*j <= max; j += i)
-      isPrime[j] = false;
-
-    // just like we do it by hand
-    // we keep on dividing until we can't divide it
-    while (a%i == 0 || b%i == 0) {
-      product *= i;
-      if (a%i == 0)
-        a /= i;
-      if (b%i == 0)
-        b /= i;
-    }
-  }
-  return product;
-}
+/* example
+ * 16 24
+ * 24 = 16.1 + 8
+ * 16 = 8.2 + 0
+ * 8 is the gcd
+ */
 
 int getGCD (int a, int b) {
-  int gcd {1};
-  int min {std::min(a, b)};
-  for (int i {2}; i < min; i++) {
-    if (a%i == 0 && b%i == 0)
-      gcd = i;
+  int max {std::max(a, b)};
+  int r {std::min(a, b)};
+  int tmp{};
+
+  while (r != 0) {
+    tmp = max;
+    max = r;
+    r = tmp%r;
   }
-  return gcd;
+  return max;
+}
+
+int getLCM(int a, int b) {
+  return (a*b)/getGCD(a,b);
 }
 
 int main() {
